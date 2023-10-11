@@ -1,12 +1,14 @@
 const path = require('path');
 const htmpPlugin = require('html-webpack-plugin');
 const package = require('./package.json');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = (env) => {
   const config = {
     entry: process.env.NODE_ENV === 'dev' ? './src/index.js' : {
       "ss": './index.js'
     },
+    devtool: 'source-map',
     mode: process.env.NODE_ENV === 'dev' ? 'development' : 'production',
     output: process.env.NODE_ENV === 'dev' ? {
       path: path.resolve(__dirname, 'public'),
@@ -32,6 +34,10 @@ module.exports = (env) => {
           exclude: /node_modules/
         }
       ]
+    },
+    externals: process.env.NODE_ENV === 'dev' ? {} : {
+      react: 'react',
+      'react-dom': 'react-dom'
     }
   }
 
@@ -44,6 +50,8 @@ module.exports = (env) => {
     config.devServer = {
       historyApiFallback: true
     }
+  } else if (process.env.NODE_ENV === 'bundle') {
+    plugins.push(new BundleAnalyzerPlugin())
   }
 
   config.plugins = plugins;
