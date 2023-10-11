@@ -11,12 +11,26 @@ const store = {
     state: {
       a: 2
     },
-    commits: {
-      test1() {}
-    }
+    actions: {
+      test1(state, payload) {
+        state.a = payload
+      }
+    },
+    modules: {test: {
+      state: {
+        a: 3
+      },
+      actions: {
+        test1(state, payload) {
+          state.a = payload
+        }
+      }
+    }},
   }},
-  commits: {
-    test1(state) { return state;}
+  actions: {
+    test1(state, payload) {
+      state.a = payload;
+    }
   }
 }
 
