@@ -1,12 +1,12 @@
 const path = require('path');
 const htmpPlugin = require('html-webpack-plugin');
-const package = require('./package.json');
+// const package = require('./package.json');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = (env) => {
   const config = {
     entry: process.env.NODE_ENV === 'dev' ? './src/index.js' : {
-      "ss": './index.js'
+      "lsp-ss": './index.js'
     },
     devtool: 'source-map',
     mode: process.env.NODE_ENV === 'dev' ? 'development' : 'production',
@@ -15,9 +15,9 @@ module.exports = (env) => {
       filename: 'bundle.js'
     } : {
       path: path.join(__dirname, 'dist'),
-      filename: `ss.umd.${package.version}.js`,
+      filename: `lsp-ss.umd.js`,
       libraryTarget: 'umd',
-      library: 'ss'
+      library: 'lsp-ss'
     },
     target: ['web', 'es5'],
     module: {

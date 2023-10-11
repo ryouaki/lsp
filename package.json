@@ -1,9 +1,9 @@
 {
-  "name": "ss.js",
+  "name": "lsp-ss",
   "version": "1.0.0",
   "description": "A single store state managment for react hooks.",
   "main": "index.js",
-  "module": "dist/ss.umd.js",
+  "module": "dist/lsp-ss.umd.1.0.0.js",
   "scripts": {
     "start": "cross-env NODE_ENV=dev webpack-dev-server --config webpack.config.js",
     "build": "cross-env NODE_ENV=prod webpack --config webpack.config.js",
@@ -14,8 +14,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ryouaki/ss.js.git"
+    "url": "git+https://github.com/ryouaki/lsp-ss.git"
   },
+  "files": [
+    "dist",
+    "package.json",
+    "LICENCE",
+    "README.md"
+  ],
   "keywords": [
     "react",
     "redux",
@@ -25,10 +31,10 @@
   "author": "ryouaki (46517115@qq.com)",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/ryouaki/ss.js/issues"
+    "url": "https://github.com/ryouaki/lsp-ss/issues"
   },
-  "homepage": "https://github.com/ryouaki/ss.js#readme",
-  "devDependencies": {
+  "homepage": "https://github.com/ryouaki/lsp-ss#readme",
+  "Devpendencies": {
     "@babel/preset-env": "^7.22.10",
     "@babel/preset-react": "^7.22.5",
     "babel-loader": "^9.1.3",
