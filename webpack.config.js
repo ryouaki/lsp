@@ -6,7 +6,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 module.exports = (env) => {
   const config = {
     entry: process.env.NODE_ENV === 'dev' ? './src/index.js' : {
-      "lsp-ss": './index.js'
+      "react-single-store": './index.js'
     },
     devtool: 'source-map',
     mode: process.env.NODE_ENV === 'dev' ? 'development' : 'production',
@@ -15,9 +15,9 @@ module.exports = (env) => {
       filename: 'bundle.js'
     } : {
       path: path.join(__dirname, 'dist'),
-      filename: `lsp-ss.umd.js`,
+      filename: `react-single-store.umd.js`,
       libraryTarget: 'umd',
-      library: 'lsp-ss'
+      library: 'react-single-store'
     },
     target: ['web', 'es5'],
     module: {
